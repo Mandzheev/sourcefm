@@ -49,7 +49,7 @@ public:
 // class player {
 // number  name
 //  amplua
-//       skill
+//       skil
 //};
 
 int main() {
