@@ -5,24 +5,34 @@
 using namespace std;
 
 int num;
-string line[20];
+string line1[10];
 
 class Leagues {
+
 public:
-  Leagues() {
+  void print_Leagues() {
+
     int r = 1;
     int g = 1;
+
     ifstream in("list_leagues.txt");
 
     if (in.is_open()) {
-      while (getline(in, line[g]))
-
-      {
-        cout << r++ << ") " << line[g++] << endl;
+      while (getline(in, line1[g])) {
+        cout << r++ << ") " << line1[g++] << endl;
       }
+    }
+    in.close();
+  }
 
-      for (int i = 1; i < 20; i++)
-        getline(in, line[i]);
+  void get_number() {
+
+    string line2[10];
+    ifstream in("list_leagues.txt");
+
+    if (in.is_open()) {
+      for (int i = 1; i < 5; i++)
+        getline(in, line2[i]);
       cin >> num;
     }
     in.close();
@@ -30,22 +40,22 @@ public:
 };
 
 class League {
+
 public:
-  League() {
-    string tm;
+  void print_League() {
+
     int p;
-    string fine[20];
-
+    int t = 1;
     char tx[] = ".txt";
-    tm = line[num] + tx;
+    string line3[10];
 
-    // cout << tm << endl;
+    string tm = line1[num] + tx;
 
     ifstream in(tm);
 
     if (in.is_open()) {
-      while (getline(in, fine[p])) {
-        cout << fine[p++] << endl;
+      while (getline(in, line3[p])) {
+        cout << t++ << ") " << line3[p++] << endl;
       }
     }
     in.close();
@@ -65,6 +75,10 @@ public:
 int main() {
 
   Leagues l1;
+  l1.print_Leagues();
+  l1.get_number();
+
   League l2;
+  l2.print_League();
   return 0;
 }
