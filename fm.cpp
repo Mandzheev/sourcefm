@@ -31,15 +31,25 @@ public:
 
 class League {
 public:
-  string tm;
   League() {
+    string tm;
+    int p;
+    string fine[20];
 
     char tx[] = ".txt";
-
     tm = line[num] + tx;
 
-    cout << tm << endl;
-  } // ifstream in(tm);
+    // cout << tm << endl;
+
+    ifstream in(tm);
+
+    if (in.is_open()) {
+      while (getline(in, fine[p])) {
+        cout << fine[p++] << endl;
+      }
+    }
+    in.close();
+  }
 };
 
 // class Team {
